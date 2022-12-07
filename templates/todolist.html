@@ -46,30 +46,90 @@
                         <div class="col-8">
                             <div class="form-group mx-sm-3 mb-2">
                                 <label for="content" class="sr-only"></label>
-                                <input type="text" class="form-control" name="content" placeholder="Research">
+                                <input type="text" class="form-control" name="content" placeholder="Your Name">
                               </div>
                         </div>
                         <div class="col-3" style="margin-top: 25px;">
-                            <button type="submit" class="btn btn-primary mb-2">Add Todo</button>
+                            <button type="submit" class="btn btn-primary mb-2">Add your bookings</button>
+                            <br>
                         </div>
+
+                        
 
                         <div class="col-8">
                             <div class="form-group mx-sm-3 mb-2">
                                 <form action="/action_page.php">
-                                    <label for="priority">Importance</label>
+                                    <br>
+                                    <label for="priority">Bus Type</label>
+                                    <br>
                                     <select name="priority" id="priority">
-                                      <option value="Urgent">Urgent</option>
-                                      <option value="General">General</option>
-                                      <option value="Occasional">Occasional</option>
+                                      <option value="Bustype - Single Decker Bus">Single Decker bus</option>
+                                      <option value="Bustype - Double Decker Bus">Double Decker Bus</option>
+                                      <option value="Bus type - Shuttle Bus">Shuttle bus</option>
+                                      <option value="Bustype - Mini Bus">Mini bus</option>
+
                                     </select>
-                                    <br><br>
+                                
+                            
                                     </form>
+
+                        <div class="col-8">
+                            <div class="form-group mx-sm-3 mb-2">
+                                
+                                <form action="/action_page.php">
+                                    <br>
+                                    <label for="shifts">Shifts</label>
+                                    <br>
+                                    <select name="shifts" id="shifts">
+                                        <option value="Shift- Morning">Morning</option>
+                                        <option value="Shift - Afternoon">Afternoon</option>
+                                        <option value="Shift - Evening">Evening</option>
+                                        <option value="Shift - Night">Night</option>
+            
+                                    </select>
+                                                
+                                    </form>
+
+                        
+
 
                        
 
-                    </div>
+                    
+                    
+                    <div class="col-8">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <form action="/action_page.php">
+                                <br>
+                                <label for="priority">Passengers</label>
+                                <br>
+                                <select name="passengers" id="passengers">
+                                    <option value="No of Passengers">1</option>
+                                    <option value="No of Passengers">2</option>
+                                    <option value="No of Passengers">3</option>
+                                    <option value="No of Passengers">4</option>
+                                    <option value="No of Passengers">5</option>
+        
+                                </select>
+                                            
+                                </form>
+                                <div class="col-8">
+                                    <div class="form-group mx-sm-3 mb-2">
+                                        <form action="/action_page.php">
+                                            <br>
+                                            <label for="Ac_type">Ac_type</label>
+                                            <br>
+                                            <select name="passengers" id="Ac_type">
+                                                <option value="No of Passengers">A/C</option>
+                                                <option value="No of Passengers">Non A/C</option>
+                                                
+                                            </select>
+                                    
+                    
+                    
                     
                   </form>
+                  
 
             </div>
             {% for i in all_items %} 
@@ -84,9 +144,20 @@
                             {{i.content}}
                         </div>
                         <div class="card-body">
+                            {{i.shifts}}
+                        </div>
+                        <div class="card-body">
+                            {{i.passengers}
+                        </div>
+                        <div class="card-body">
+                            {{i.Ac_type}}
+                        </div>
+                        <div class="card-body">
                             {{i.date1}}
                         </div>
+
                       </div>
+
                 </div>
 
                 <div class="col-2">
@@ -110,6 +181,7 @@
 
 </div>
 <div class="col-1">
+    <br>
     {% if user.is_authenticated %}
     <a class="" href="{% url 'userauth:logout' %}">
         Logout
